@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalLink | Kimberley, Northern Cape</title>
+    <link rel="icon" type="image/svg+xml" href="images/locallink-logo.svg" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="brand-row">
+          <div class="brand-block">
+            <div class="brand-mark" aria-label="LocalLink logo">
+              <img src="images/locallink-logo.svg" alt="LocalLink logo" />
+            </div>
+            <div>
+              <p class="eyebrow">Local discovery</p>
+              <h1>LocalLink</h1>
+              <p class="hero-copy">Built for Kimberley, Northern Cape — discover trusted local services, events, and quote-ready providers in one flow.</p>
+            </div>
+          </div>
+          <nav class="top-nav">
+            <button class="nav-btn active" data-view="home">Discover</button>
+            <button class="nav-btn" data-view="events">Events</button>
+            <button class="nav-btn" data-view="onboard">Onboard</button>
+            <button class="nav-btn" data-view="dashboard">Dashboard</button>
+          </nav>
+        </div>
+
+        <section class="search-panel">
+          <label class="field">
+            <span>Search</span>
+            <input id="searchInput" type="text" placeholder="Barber, plumber, tutor, music event..." />
+          </label>
+          <label class="field">
+            <span>Category</span>
+            <select id="categorySelect">
+              <option value="All">All categories</option>
+              <option value="Beauty">Beauty</option>
+              <option value="Home">Home</option>
+              <option value="Learning">Learning</option>
+              <option value="Events">Events</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Location</span>
+            <select id="locationSelect">
+              <option value="Any">Any suburb</option>
+              <option value="Kimberley CBD">Kimberley CBD</option>
+              <option value="Beaconsfield">Beaconsfield</option>
+              <option value="Galeshewe">Galeshewe</option>
+              <option value="Ritchie">Ritchie</option>
+              <option value="Greenpoint">Greenpoint</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>When</span>
+            <select id="timeSelect">
+              <option value="Today">Today</option>
+              <option value="This Week">This week</option>
+              <option value="Any">Any time</option>
+            </select>
+          </label>
+          <button id="searchBtn" class="primary-btn">Search now</button>
+        </section>
+        <div id="searchStatus" class="search-status">Detecting your location and loading nearby services...</div>
+        <div class="hero-highlights" aria-label="Live app highlights">
+          <div class="highlight-pill"><span class="pulse-dot"></span><span id="liveStatusText">Live discovery</span></div>
+          <div class="highlight-pill" id="heroProviderCount">0 curated providers</div>
+          <div class="highlight-pill" id="heroTimeText">Local time</div>
+        </div>
+      </header>
+
+      <main>
+        <section id="homeView" class="view active">
+          <section class="map-card">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Kimberley map</p>
+                <h2>Local discovery across Kimberley and the Northern Cape surrounds</h2>
+              </div>
+              <div class="map-badge">Focused on Kimberley, Northern Cape</div>
+            </div>
+            <div id="kimberleyMap" class="kimberley-map"></div>
+          </section>
+
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Live results</p>
+              <h2>Nearby matches ranked by relevance, distance, rating, and promotion</h2>
+            </div>
+            <div class="pill-row" id="categoryPills"></div>
+          </div>
+
+          <div class="results-grid">
+            <div>
+              <div id="welcomeBanner"></div>
+              <div class="card-list" id="providerResults"></div>
+            </div>
+            <aside class="detail-card" id="profilePanel">
+              <p class="eyebrow">Selected profile</p>
+              <div id="profileDetails">Choose a result to see the profile flow.</div>
+            </aside>
+          </div>
+
+          <section class="section-block">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Events</p>
+                <h3>Upcoming events and pop-up experiences</h3>
+              </div>
+            </div>
+            <div class="event-list" id="eventResults"></div>
+          </section>
+        </section>
+
+        <section id="eventsView" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Events module</p>
+              <h2>Discover nearby happenings with the same location-first engine</h2>
+            </div>
+          </div>
+          <div class="card-list" id="eventsList"></div>
+        </section>
+
+        <section id="onboardView" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Provider onboarding</p>
+              <h2>Bring a new service to the LocalLink map</h2>
+            </div>
+          </div>
+
+          <form id="onboardForm" class="form-card">
+            <div class="step-pill">Step 1 • Create your business profile</div>
+            <label>
+              <span>Business name</span>
+              <input name="name" required />
+            </label>
+            <label>
+              <span>Category</span>
+              <select name="category">
+                <option value="Beauty">Beauty</option>
+                <option value="Home">Home</option>
+                <option value="Learning">Learning</option>
+                <option value="Events">Events</option>
+              </select>
+            </label>
+            <label>
+              <span>Suburb</span>
+              <input name="location" placeholder="Kimberley CBD" required />
+            </label>
+            <label>
+              <span>Service type</span>
+              <input name="serviceType" placeholder="Haircut, plumbing, tutoring" required />
+            </label>
+            <label>
+              <span>Service description</span>
+              <textarea name="description" rows="3" required></textarea>
+            </label>
+            <label>
+              <span>Price range</span>
+              <input name="priceRange" placeholder="R120-R350" required />
+            </label>
+            <label>
+              <span>WhatsApp number</span>
+              <input name="whatsapp" placeholder="27123456789" />
+            </label>
+            <label>
+              <span>Contact number</span>
+              <input name="contact" placeholder="071 234 5678" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              <span>Service area</span>
+              <input name="serviceArea" placeholder="Beaconsfield, Greenpoint" required />
+            </label>
+            <label>
+              <span>Primary action</span>
+              <select name="actionType">
+                <option value="whatsapp">WhatsApp deep link</option>
+                <option value="quote">Request quote form</option>
+              </select>
+            </label>
+            <button class="primary-btn" type="submit">Create LocalLink profile</button>
+          </form>
+
+          <div id="onboardSuccess" class="success-card hidden">
+            <p class="eyebrow">Welcome aboard</p>
+            <h3>Your profile is live in LocalLink.</h3>
+            <p>Your service has been saved and you’re being welcomed into the Kimberley discovery world.</p>
+            <button id="enterLocalLinkBtn" class="primary-btn">Enter LocalLink</button>
+          </div>
+        </section>
+
+        <section id="dashboardView" class="view">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Provider dashboard</p>
+              <h2>Leads, visibility, and monetization controls</h2>
+            </div>
+          </div>
+          <div class="metrics-grid" id="metricsGrid"></div>
+          <div class="card-list" id="dashboardProviders"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="app.js"></script>
+  </body>
+</html>

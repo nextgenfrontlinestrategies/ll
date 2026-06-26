@@ -1,0 +1,234 @@
+{
+  "providers": [
+    {
+      "id": "p1",
+      "name": "The Cut Lounge",
+      "category": "Beauty",
+      "location": "Beaconsfield",
+      "coordinates": {
+        "lat": -28.7425,
+        "lng": 24.7708
+      },
+      "rating": 4.9,
+      "priceRange": "R120-R260",
+      "availability": [
+        "Open now",
+        "Walk-ins"
+      ],
+      "activity": 88,
+      "promotion": true,
+      "featured": false,
+      "description": "Precision cuts, grooming, and same-day styling in the Beaconsfield area.",
+      "bio": "A locally loved barbershop and beauty studio focused on quality service and quick booking.",
+      "images": [
+        "✂️",
+        "🪒"
+      ],
+      "reviews": 214,
+      "actionType": "whatsapp",
+      "whatsapp": "https://wa.me/27551234567?text=Hi%20I%20would%20like%20to%20book%20a%20service",
+      "tags": [
+        "barber",
+        "haircut",
+        "styling",
+        "beauty",
+        "grooming"
+      ],
+      "serviceList": [
+        "Haircuts",
+        "Beard trims",
+        "Styling"
+      ],
+      "profileCompleteness": 92,
+      "responseSpeed": 4,
+      "verified": true
+    },
+    {
+      "id": "p2",
+      "name": "Ritchie Learning Hub",
+      "category": "Learning",
+      "location": "Ritchie",
+      "coordinates": {
+        "lat": -28.7361,
+        "lng": 24.7854
+      },
+      "rating": 4.7,
+      "priceRange": "R80-R180",
+      "availability": [
+        "Today",
+        "Online"
+      ],
+      "activity": 71,
+      "promotion": false,
+      "featured": false,
+      "description": "Homework help, maths support, and exam prep for local students.",
+      "bio": "Friendly tutors helping learners build confidence in school and university prep.",
+      "images": [
+        "📚",
+        "🧠"
+      ],
+      "reviews": 132,
+      "actionType": "quote",
+      "tags": [
+        "tutor",
+        "learning",
+        "math",
+        "homework",
+        "exam"
+      ],
+      "serviceList": [
+        "Math support",
+        "Exam prep",
+        "Homework help"
+      ],
+      "profileCompleteness": 86,
+      "responseSpeed": 3,
+      "verified": true
+    },
+    {
+      "id": "p3",
+      "name": "Fix-It Quick Plumbing",
+      "category": "Home",
+      "location": "Kimberley CBD",
+      "coordinates": {
+        "lat": -28.7395,
+        "lng": 24.7631
+      },
+      "rating": 4.8,
+      "priceRange": "R180-R420",
+      "availability": [
+        "Open late",
+        "Emergency"
+      ],
+      "activity": 92,
+      "promotion": true,
+      "featured": true,
+      "description": "Fast repairs for leaks, installs, and drain clearing around Kimberley.",
+      "bio": "Reliable plumbers with transparent pricing and thorough workmanship.",
+      "images": [
+        "🛠️",
+        "🚿"
+      ],
+      "reviews": 188,
+      "actionType": "whatsapp",
+      "whatsapp": "https://wa.me/27559876543?text=Hi%20I%20need%20a%20plumber%20for%20an%20urgent%20repair",
+      "tags": [
+        "plumber",
+        "repair",
+        "home",
+        "urgent",
+        "drain"
+      ],
+      "serviceList": [
+        "Leak repair",
+        "Drain clearance",
+        "Installations"
+      ],
+      "profileCompleteness": 94,
+      "responseSpeed": 5,
+      "verified": true
+    },
+    {
+      "id": "p4",
+      "name": "Galeshewe Community Music",
+      "category": "Events",
+      "location": "Galeshewe",
+      "coordinates": {
+        "lat": -28.7482,
+        "lng": 24.7815
+      },
+      "rating": 4.6,
+      "priceRange": "R50-R150",
+      "availability": [
+        "This week",
+        "Live events"
+      ],
+      "activity": 76,
+      "promotion": false,
+      "featured": false,
+      "description": "Community music nights, youth showcases, and local entertainment bookings.",
+      "bio": "An events-led business bringing music and culture closer to the community.",
+      "images": [
+        "🎶",
+        "🎤"
+      ],
+      "reviews": 94,
+      "actionType": "quote",
+      "tags": [
+        "music",
+        "events",
+        "community",
+        "live"
+      ],
+      "serviceList": [
+        "Live shows",
+        "Community events",
+        "Bookings"
+      ],
+      "profileCompleteness": 79,
+      "responseSpeed": 3,
+      "verified": false
+    }
+  ],
+  "events": [
+    {
+      "id": "e1",
+      "title": "Sunset Jazz Walk",
+      "category": "Events",
+      "location": "Kimberley CBD",
+      "coordinates": {
+        "lat": -28.7395,
+        "lng": 24.7631
+      },
+      "date": "Today",
+      "time": "6:30 PM",
+      "organizer": "Harbor Sounds",
+      "description": "A neighborhood music crawl with food stalls and local performers.",
+      "tags": [
+        "music",
+        "community",
+        "night"
+      ]
+    },
+    {
+      "id": "e2",
+      "title": "Ritchie Community Market",
+      "category": "Events",
+      "location": "Ritchie",
+      "coordinates": {
+        "lat": -28.7361,
+        "lng": 24.7854
+      },
+      "date": "This Week",
+      "time": "Saturday · 11 AM",
+      "organizer": "Local Makers Collective",
+      "description": "Live workshops, handmade goods, and family-friendly demos.",
+      "tags": [
+        "market",
+        "community",
+        "family"
+      ]
+    },
+    {
+      "id": "e3",
+      "title": "Beaconsfield Night Market",
+      "category": "Events",
+      "location": "Beaconsfield",
+      "coordinates": {
+        "lat": -28.7425,
+        "lng": 24.7708
+      },
+      "date": "Today",
+      "time": "7:00 PM",
+      "organizer": "Beacon Eats",
+      "description": "Food, music, and a casual evening of community networking.",
+      "tags": [
+        "food",
+        "music",
+        "night"
+      ]
+    }
+  ],
+  "leads": [],
+  "views": {}
+}
